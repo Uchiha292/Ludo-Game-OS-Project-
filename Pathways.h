@@ -2,7 +2,7 @@
 #define PATHWAYS_H
 
 // Maximum size for the pathway (all '.' cells in the grid)
-#define MAX_PATHWAY_CELLS 225
+#define MAX_PATHWAY_CELLS 255
 
 // Array to hold coordinates of the pathway
 extern int pathway[MAX_PATHWAY_CELLS][2];
@@ -11,6 +11,4 @@ extern int pathway[MAX_PATHWAY_CELLS][2];
 extern int pathwayLength;
 
 #endif
-
-
 
