@@ -8,7 +8,7 @@
 // Mutex for thread safety
 pthread_mutex_t lock;
 
-int currentPositionA = 0; // Player A's position
+int currentPositionA = -1; // Player A's position
 
 // Dice roll function
 int rollDice() {
@@ -49,8 +49,27 @@ void* gameThread(void* arg) {
         int diceRoll = rollDice();
         printf("\nPlayer %c rolled a %d!\n", tokenChar, diceRoll);
 
-        moveToken(&currentPositionA, tokenChar, diceRoll); // Move Player A's token
-        displayGrid(); // Display updated grid
+        // If token is in base and
+        // If dicerolls a 6
+        //token will be placed at starting point 
+        //of their respective pathway's starting point
+        if (currentPositionA == -1) { //-1 means token is in base
+            if (diceRoll == 6) {
+                // Place the token at the starting position of the pathway
+                currentPositionA = 0; // Starting index in pathway
+                int startRow = pathway[currentPositionA][0];
+                int startCol = pathway[currentPositionA][1];
+                grid[startRow][startCol] = tokenChar; // Place token on grid
+            } 
+            else {
+                printf("Player %c cannot move.\n", tokenChar);
+            }
+        } 
+        else {
+            // Move Token if already in pathway
+            moveToken(&currentPositionA, tokenChar, diceRoll);
+        }
+        displayGrid();
     }
     return NULL;
 }
@@ -64,7 +83,7 @@ int main() {
     initializeGrid(); // Initialize grid
 
     // Place Player A's token at the starting position
-    grid[pathway[currentPositionA][0]][pathway[currentPositionA][1]] = 'a';
+    grid[1][1] = 'a';
     displayGrid(); // Show the grid initially
 
     // Start Player A's thread
