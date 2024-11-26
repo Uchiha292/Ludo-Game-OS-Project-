@@ -8,7 +8,9 @@
 // Mutex for thread safety
 pthread_mutex_t lock;
 
-int currentPositionA = -1; // Player A's position
+// Player A's position
+//Token in base when game starts
+int currentPositionA = -1; 
 
 // Dice roll function
 int rollDice() {
@@ -82,7 +84,7 @@ int main() {
 
     initializeGrid(); // Initialize grid
 
-    // Place Player A's token at the starting position
+    // Place Player A's token in its respective base
     grid[1][1] = 'a';
     displayGrid(); // Show the grid initially
 
