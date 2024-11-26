@@ -10,7 +10,7 @@
 #define WHITE   "\033[47m"
 #define GRAY    "\033[100m"
 #define BLACK   "\033[40m"
-
+#define LIGHT_RED "\033[48;2;255;102;102m"
 // Shared grid array
 extern char grid[15][15];
 

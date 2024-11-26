@@ -103,6 +103,8 @@ void displayGrid() {
                 printf(GRAY "   " RESET); // Safe zones
             } else if (grid[i][j] == 'X') {
                 printf(BLACK "   " RESET); // Center block
+            } else if (grid[i][j] == 'a') {
+                printf(LIGHT_RED "   " RESET); // tokens of Player A
             } else {
                 printf(WHITE " * " RESET); // Pathway cells
             }

@@ -67,7 +67,7 @@ int main() {
     displayGrid(); // Show the grid initially
 
     // Start Player A's thread
-    char tokenA = 'A';
+    char tokenA = 'a';
     pthread_create(&threadA, NULL, gameThread, &tokenA);
 
     pthread_join(threadA, NULL); // Wait for thread to finish
