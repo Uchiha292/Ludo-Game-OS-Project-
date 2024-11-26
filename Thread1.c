@@ -18,7 +18,8 @@ int rollDice() {
 // Move token for Player A along the pathway
 void moveToken(int *currentPosition, char tokenChar, int steps) {
     pthread_mutex_lock(&lock);
-
+    initializeGrid();// re-intilization of grind when the token moves through stops 
+    
     // Clear the current position
     int currentRow = pathway[*currentPosition][0];
     int currentCol = pathway[*currentPosition][1];
@@ -63,7 +64,7 @@ int main() {
     initializeGrid(); // Initialize grid
 
     // Place Player A's token at the starting position
-    grid[pathway[currentPositionA][0]][pathway[currentPositionA][1]] = 'A';
+    grid[pathway[currentPositionA][0]][pathway[currentPositionA][1]] = 'a';
     displayGrid(); // Show the grid initially
 
     // Start Player A's thread
