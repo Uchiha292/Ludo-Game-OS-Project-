@@ -2,13 +2,30 @@
 #define PATHWAYS_H
 
 // Maximum size for the pathway (all '.' cells in the grid)
-#define MAX_PATHWAY_CELLS 255
+#define MaxPathwayLength 255
 
 // Array to hold coordinates of the pathway
-extern int pathway[MAX_PATHWAY_CELLS][2];
+extern int pathway[MaxPathwayLength][2];
 
 // Length of the pathway (number of '.' cells)
 extern int pathwayLength;
+
+void initializePathway();
+
+void RedPathUH();
+void RedPathDH();
+void RedMiddle();
+void YellowPathUp();
+void YellowMiddle();
+void YellowPathDown();
+void GreenPathForward();
+void GreenMiddle();
+void GreenPathDown();
+void BluePathDown(); 
+void BlueMiddle();
+void BluePathUp();
+void RedInnerHome();
+
 
 #endif
 

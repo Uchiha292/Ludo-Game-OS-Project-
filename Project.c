@@ -1,42 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "grid.h"
+#include "Pathways.h"
 
 // Grid array
 char grid[15][15];
 
-// Explicitly define the pathway with (row, col) coordinates
-int pathway[255][2] = {
-    //red path starting
-    {6, 1}, {6, 2}, {6, 3}, {6, 4}, {6, 5},
-    //yellow path upward
-    {5, 6}, {4, 6}, {3, 6}, {2, 6}, 
-    //middle area of yellow
-    {1, 6}, {0, 7}, {0, 8},
-    //yellow down
-    {1, 8}, {2, 8}, {3, 8}, {4, 8}, {5, 8},
-    //green home forward
-    {6, 10}, {6, 11}, {6, 12}, {6, 13}, 
-    //middle area of green
-    {6, 14}, {7, 14}, {8, 14},
-    //green down forward
-    {8, 13}, {8, 12}, {8, 11}, {8, 10}, {8, 9},
-    //blue downward
-    {10, 8}, {11, 8}, {12, 8}, {13, 8}, 
-    //middle area blue
-    {14, 8}, {14, 7}, {14, 6},
-    //blue upward
-    {13, 6} , {12, 6}, {11, 6}, {10, 6}, {9, 6},
-    //red down 
-    {8, 5}, {8, 4}, {8, 3}, {8, 2}, {8, 1},
-    //middle of red
-    {5, 1}, {5, 2}, {5, 3}, {5, 4}, {5, 5}, 
-    //red home
-    {7, 1}
-};
-
-int pathwayLength = sizeof(pathway) / sizeof(pathway[0]); // Total number of steps
-                                                 
 void initializeGrid() {
     // Initialize all cells as white
     for (int i = 0; i < 15; i++) {
@@ -104,7 +73,13 @@ void displayGrid() {
             } else if (grid[i][j] == 'X') {
                 printf(BLACK "   " RESET); // Center block
             } else if (grid[i][j] == 'a') {
-                printf(LIGHT_RED "   " RESET); // tokens of Player A
+                printf(LIGHT_RED "   " RESET); // Token a
+            } else if (grid[i][j] == 'b') {
+                printf(LIGHT_YELLOW "   " RESET); // Token b
+            } else if (grid[i][j] == 'c') {
+                printf(DARK_BLUE "   " RESET); // Token c
+            } else if (grid[i][j] == 'd') {
+                printf(DARK_GREEN "   " RESET); // Token d
             } else {
                 printf(WHITE " * " RESET); // Pathway cells
             }
