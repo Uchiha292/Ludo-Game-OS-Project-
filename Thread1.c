@@ -189,10 +189,10 @@ void* gameThread(void* arg) {
         displayGrid(); 
         
          // Check for game end (example condition: reaching position 0 again)
-        if (*currPosition == 0 && diceRoll > 0) {
-            printf("Player %c has completed the pathway!\n", tokenChar);
-            break; 
-        }
+//         if (*currPosition == 0 && diceRoll > 0) {
+//                 printf("Player %c has completed the pathway!\n", tokenChar);
+//                 break; 
+//         }
             
     }
     return NULL;
